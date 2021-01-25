@@ -1,7 +1,18 @@
-# This is a sample Python script.
+import numpy as np
+import os
+import re
+from PIL import Image
+import imagehash
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+def creat_imgharsh_list(path):
+    path_list = []
+    for (root, dirs, files) in os.walk(path, topdown=True):
+        for file in files:
+            if re.match('(.*)\.jpg', file):
+                path_list.append(file)
+
+    return path_list
 
 
 def print_hi(name):
@@ -11,6 +22,11 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    path = r'H:\eh\~Temp2\H-anime\other\Short source filmmaker\temp\sfm\sound\wow'
+    jpg_list = creat_imgharsh_list(path)
+
+    for jpg in jpg_list:
+
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
